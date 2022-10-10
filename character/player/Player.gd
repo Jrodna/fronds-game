@@ -16,32 +16,32 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-  var velocity = Vector2.ZERO
+	var velocity = Vector2.ZERO
 
-  if Input.is_action_pressed("move_right"): 
-    velocity.x += 1
-  if Input.is_action_pressed("move_left"): 
-    velocity.x -= 1
-  if Input.is_action_pressed("move_up"): 
-    velocity.y -= 1
-  if Input.is_action_pressed("move_down"): 
-    velocity.y += 1
+	if Input.is_action_pressed("move_right"): 
+		velocity.x += 1
+	if Input.is_action_pressed("move_left"): 
+		velocity.x -= 1
+	if Input.is_action_pressed("move_up"): 
+		velocity.y -= 1
+	if Input.is_action_pressed("move_down"): 
+		velocity.y += 1
 
-  if velocity.length() > 0:
-    velocity = velocity.normalized() * speed
-    $AnimatedSprite.play()
+	if velocity.length() > 0:
+		velocity = velocity.normalized() * speed
+		$AnimatedSprite.play()
 
-  else:
-    $AnimatedSprite.stop()
+	else:
+		$AnimatedSprite.stop()
 
-  position += velocity * delta
+	position += velocity * delta
 
 func _on_Player_body_entered(body:Node):
-  hide()
-  emit_signal('hit')
-  $CollisionShape2D.set_deferred("disabled", true);
+	hide()
+	emit_signal('hit')
+	$CollisionShape2D.set_deferred("disabled", true);
 
 func start(pos):
-  position = pos
-  show()
-  $CollisionShape2D.disabled = false;
+	position = pos
+	show()
+	$CollisionShape2D.disabled = false;

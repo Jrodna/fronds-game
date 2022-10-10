@@ -1,4 +1,5 @@
 extends Area2D
+signal hit
 
 
 # Declare member variables here. Examples:
@@ -34,3 +35,13 @@ func _process(delta):
     $AnimatedSprite.stop()
 
   position += velocity * delta
+
+func _on_Player_body_entered(body:Node):
+  hide()
+  emit_signal('hit')
+  $CollisionShape2D.set_deferred("disabled", true);
+
+func start(pos):
+  position = pos
+  show()
+  $CollisionShape2D.disabled = false;

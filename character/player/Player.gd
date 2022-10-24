@@ -8,7 +8,7 @@ signal critUsed
 # var b = "text"
 
 export var speed := 400
-var canShoot = true
+var canShoot = false
 var isCrit = false
 
 const bulletPath = preload('res://character/player/Bullet.tscn')
@@ -16,7 +16,7 @@ const bulletPath = preload('res://character/player/Bullet.tscn')
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$CritTimer.start()
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -49,11 +49,16 @@ func _on_Player_body_entered(body:Node):
 	hide()
 	emit_signal('hit')
 	$CollisionShape2D.set_deferred("disabled", true);
+	$BulletTimer.stop()
+	$CritTimer.stop()
+	canShoot = false
 
 func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false;
+	$CritTimer.start()
+	canShoot = true
 
 func shoot():
 	if(canShoot):

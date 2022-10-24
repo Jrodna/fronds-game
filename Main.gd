@@ -58,7 +58,7 @@ func _on_EnemyTimer_timeout():
 
 	# Add some randomness to the direction.
 	direction += rand_range(-PI / 4, PI / 4)
-	enemy.rotation = direction
+	# enemy.rotation = direction
 
 	# Choose the velocity for the enemy.
 	var velocity = Vector2(rand_range(150.0, 250.0), 0.0)

@@ -5,10 +5,16 @@ extends RigidBody2D
 # var a = 2
 # var b = "text"
 
+var sprites = ["Pinky", "Blinky", "Clyde", "Inky"]
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	randomize()
+	var spriteNum = randi() % 4
+	get_node(sprites[spriteNum]).show()
+
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

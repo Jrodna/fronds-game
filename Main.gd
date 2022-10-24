@@ -11,7 +11,6 @@ var score
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	new_game()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -23,7 +22,7 @@ func game_over():
 	
 func new_game():
 	score = 0
-	$PlayerScene.Player.start($StartPosition.position)
+	$PlayerScene.start($StartPosition.position)
 	$StartTimer.start()
 
 
@@ -36,6 +35,7 @@ func _on_StartTimer_timeout():
 	$ScoreTimer.start()
 
 func _on_EnemyTimer_timeout():
+	print_debug("Enemy Spawn Triggered")
 	# Create a new instance of the Enemy scene.
 	var enemy = enemy_scene.instance()
 

@@ -7,14 +7,21 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 64, 64, 0, 0, 0, 0, 952, 64, 0, 0, 0, 0, 960, 512, 0, 0, 0, 0, 64, 512, 0, 0, 0, 0, 64, 64 )
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1024, 0, 0, 0, 0, 0, 1024, 600, 0, 0, 0, 0, 0, 600, 0, 0, 0, 0, 0, 0 )
 }
 
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
 enemy_scene = ExtResource( 3 )
 
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+stretch_mode = 1
+
 [node name="PlayerScene" parent="." instance=ExtResource( 1 )]
+position = Vector2( 128, -64 )
 
 [node name="EnemyTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -26,13 +33,12 @@ wait_time = 2.0
 one_shot = true
 
 [node name="StartPosition" type="Position2D" parent="."]
-position = Vector2( 240, 450 )
+position = Vector2( 512, 448 )
 
 [node name="EnemyPath" type="Path2D" parent="."]
 curve = SubResource( 1 )
 
 [node name="EnemySpawnLocation" type="PathFollow2D" parent="EnemyPath"]
-position = Vector2( 64, 64 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 

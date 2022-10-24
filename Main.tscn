@@ -42,6 +42,8 @@ curve = SubResource( 1 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
+[connection signal="critReady" from="PlayerScene" to="HUD" method="_on_PlayerScene_critReady"]
+[connection signal="critUsed" from="PlayerScene" to="HUD" method="_on_PlayerScene_critUsed"]
 [connection signal="hit" from="PlayerScene" to="." method="game_over"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]

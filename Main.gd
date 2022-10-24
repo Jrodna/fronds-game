@@ -25,6 +25,7 @@ func game_over():
 func new_game():
 	score = 0
 	get_tree().call_group("enemies", "queue_free")
+	get_tree().call_group("projectiles", "queue_free")
 	$PlayerScene.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.update_score(score)

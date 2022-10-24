@@ -31,3 +31,10 @@ func _on_StartButton_pressed():
 
 func _on_MessageTimer_timeout():
 	$Message.hide()
+
+func _on_PlayerScene_critReady():
+	$CritReadyLabel.show()
+
+
+func _on_PlayerScene_critUsed():
+	$CritReadyLabel.hide()

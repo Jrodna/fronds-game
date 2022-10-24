@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://character/player/PlayerScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
 [ext_resource path="res://character/enemy/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://common/HUD/HUD.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -33,7 +34,10 @@ curve = SubResource( 1 )
 [node name="EnemySpawnLocation" type="PathFollow2D" parent="EnemyPath"]
 position = Vector2( 64, 64 )
 
-[connection signal="hit" from="PlayerScene" to="PlayerScene" method="_on_PlayerScene_hit"]
+[node name="HUD" parent="." instance=ExtResource( 4 )]
+
+[connection signal="hit" from="PlayerScene" to="." method="game_over"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]

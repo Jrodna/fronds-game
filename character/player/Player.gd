@@ -46,6 +46,5 @@ func start(pos):
 	show()
 	$CollisionShape2D.disabled = false;
 
-
-func _on_Player_hit():
+func _on_PlayerScene_hit():
 	$Main.game_over()

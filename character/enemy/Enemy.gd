@@ -6,6 +6,8 @@ extends RigidBody2D
 # var b = "text"
 
 var sprites = ["Pinky", "Blinky", "Clyde", "Inky"]
+var minSpeed = 150
+var maxSpeed = 250 
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,6 +16,13 @@ func _ready():
 	var spriteNum = randi() % 4
 	get_node(sprites[spriteNum]).show()
 
+	var players = get_tree().get_nodes_in_group("player")
+
+
+	var direction = (players[randi() % len(players)].position - position).normalized();
+	var velocity = direction * rand_range(minSpeed, maxSpeed)
+
+	linear_velocity = velocity
 	
 
 

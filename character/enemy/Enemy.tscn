@@ -8,7 +8,7 @@
 [ext_resource path="res://inky.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 30, 30 )
+extents = Vector2( 16, 16 )
 
 [node name="Enemy" type="RigidBody2D" groups=["enemies"]]
 collision_layer = 3
@@ -27,27 +27,27 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
 
 [node name="Pinky" type="Sprite" parent="."]
 visible = false
-position = Vector2( 9.53674e-07, -0.125 )
-scale = Vector2( 0.0655738, 0.0611323 )
+position = Vector2( -4.76837e-07, -2.33519e-06 )
+scale = Vector2( 0.0327869, 0.0304472 )
 texture = ExtResource( 5 )
 
 [node name="Inky" type="Sprite" parent="."]
 visible = false
-position = Vector2( -5.22998e-06, 0.500008 )
-scale = Vector2( 0.157248, 0.160891 )
+scale = Vector2( 0.0786241, 0.0792079 )
 texture = ExtResource( 6 )
 
 [node name="Blinky" type="Sprite" parent="."]
 visible = false
-position = Vector2( -8.9407e-07, 2.02656e-06 )
-scale = Vector2( 0.176, 0.174863 )
+position = Vector2( 2.6226e-06, 0 )
+scale = Vector2( 0.096, 0.0874317 )
 texture = ExtResource( 4 )
 
 [node name="Clyde" type="Sprite" parent="."]
 visible = false
-position = Vector2( -0.500001, -6.55651e-07 )
-scale = Vector2( 0.138333, 0.14 )
+position = Vector2( 4.76837e-07, 7.15256e-07 )
+scale = Vector2( 0.08, 0.08 )
 texture = ExtResource( 3 )

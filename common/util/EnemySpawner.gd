@@ -18,15 +18,7 @@ func _ready():
 	spawnPathNode = get_node(spawnPath)
 	spawnTimer = get_node("SpawnTimer")
 	spawnTimer.wait_time = 1/spawnRate
-
-	if delay > 0:
-		delayTimer = get_node("DelayTimer")
-		delayTimer.wait_time = delay
-		delayTimer.start()
-	else: 
-		spawnEnemy()
-		spawnTimer.start()
-
+	delayTimer = get_node("DelayTimer")
 
 func _on_DelayTimer_timeout():
 	spawnEnemy()
@@ -45,4 +37,16 @@ func spawnEnemy():
 	spawnedEnemies += 1	
 	if spawnedEnemies == enemyCount:
 		spawnTimer.stop()
-	
+
+func start_spawning():
+	if delay > 0:
+		
+		delayTimer.wait_time = delay
+		delayTimer.start()
+	else: 
+		spawnEnemy()
+		spawnTimer.start()
+
+func stop_spawning():
+	delayTimer.stop()
+	spawnTimer.stop()

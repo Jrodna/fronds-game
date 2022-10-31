@@ -43,6 +43,6 @@ func spawnEnemy():
 	add_child_below_node(spawnPathNode, enemyNode)
 
 	spawnedEnemies += 1	
-	if spawnedEnemies >= enemyCount:
+	if spawnedEnemies == enemyCount:
 		spawnTimer.stop()
 	
